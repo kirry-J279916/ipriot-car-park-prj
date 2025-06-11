@@ -1,3 +1,7 @@
+from display import Display
+from sensor import Sensor
+
+
 class CarPark:
     """
     Manages parking bays, cars and displays.
@@ -17,3 +21,13 @@ class CarPark:
 
     def __str__(self):
         return f"Welcome to {self.location} car park"
+
+
+    def register(self, component):
+        if not isinstance(component, (Sensor, Display)):
+            raise TypeError("Object must be a Sensor or Display")
+
+        if isinstance(component, Sensor):
+            self.sensors.append(component)
+        elif isinstance(component, Display):
+            self.displays.append(component)
