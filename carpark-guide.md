@@ -461,26 +461,24 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
 ![Added methods to the car park class](screenshots/methods-to-car-park.png)
-```
 
 Answer the following questions:
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
->      `CarPark class because it holds the car park capacity and the plates entered, which will then be used to compare.`
+>      `CarPark class because it has an available bays method.`
 >    - *The current temperature*
->      `CarPark because it will update display to show the temperature.`
+>      `CarPark because the update_displays method will update the temperature display.`
 >    - *The time*
->      `CarPark because it will update diplay to show the time.`
+>      `CarPark because the time display will be updated in update_display method.`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `text`
+>    `Attribute is data of an object and property is a method beviour that acts like an atttribute.`
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `text`
+>    `Because it's already structured, It's helpful for displaying multiple different data, such as bays, temp, announcement all together. The disadvantage is that you can't use duplicate keys.`
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
 
