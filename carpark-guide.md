@@ -384,11 +384,11 @@ For example, you may want to see the number of available bays, the current tempe
 Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which class is responsible for each piece of information? There's no right or wrong answer here. But you should be able to justify your answer.
 
 >Q. Which class is responsible for the number of available bays (and why)?
->
+> CarPark class because it holds the car park capacity and the plates entered, which will then be used to compare.
 >Q. Which class is responsible for the current temperature (and why)?
->
+> CarPark because it will update display to show the temperature.
 >Q. Which class is responsible for the time (and why)?
->
+> CarPark because it will update display to show the time.
 --------
 
 ##### 2.7.3.1. Detour: implement available bays
@@ -470,17 +470,17 @@ Answer the following questions:
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - *The number of available bays*
->      `Answer here...`
+>      `CarPark class because it holds the car park capacity and the plates entered, which will then be used to compare.`
 >    - *The current temperature*
->      `Answer here...`
+>      `CarPark because it will update display to show the temperature.`
 >    - *The time*
->      `Answer here...`
+>      `CarPark because it will update diplay to show the time.`
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `text`
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `text`
 
 #### 2.7.5. Add a detect vehicle method to the Sensor class
 
