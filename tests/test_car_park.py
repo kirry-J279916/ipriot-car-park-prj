@@ -40,6 +40,11 @@ class TestCarPark(unittest.TestCase):
          with self.assertRaises(ValueError):
             self.car_park.remove_car("NO-1")
 
+      def test_register_raises_type_error(self):
+          car_park = CarPark("Test", 20)
+          with self.assertRaises(TypeError):
+              car_park.register("a string")
+
 
 if __name__ == "__main__":
    unittest.main()

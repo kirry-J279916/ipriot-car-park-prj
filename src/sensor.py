@@ -22,7 +22,7 @@ class Sensor(ABC):
         ...
 
     def _scan_plate(self):
-        return "NUM-" + format(random.randint(0, 999), "55u")
+        return f"WA1-{(random.randint(0, 999))}"
 
     def detect_vehicle(self):
         plate = self._scan_plate()
