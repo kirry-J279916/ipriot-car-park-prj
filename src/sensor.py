@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import random
 
+
 class Sensor(ABC):
     """
     Create sensors to detect car plates entering and exiting.

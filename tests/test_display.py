@@ -2,6 +2,7 @@ import unittest
 from display import Display
 from car_park import CarPark
 
+
 class TestDisplay(unittest.TestCase):
     def setUp(self):
         self.car_park = CarPark("TestPark", 10)

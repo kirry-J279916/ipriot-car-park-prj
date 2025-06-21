@@ -2,6 +2,7 @@ import unittest
 from sensor import EntrySensor, ExitSensor
 from car_park import CarPark
 
+
 class TestEntrySensor(unittest.TestCase):
     def test_sensor_initialized(self):
         carpark_test = CarPark("Location", 10)
