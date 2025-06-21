@@ -7,6 +7,9 @@ class TestCarPark(unittest.TestCase):
     def setUp(self):
         self.car_park = CarPark("123 Example Street", 100)
         self.log_file = Path("log.txt")
+        self.config_file = Path("config.json")
+        self.config_path = Path("test_config.json")
+        self.log_path = Path("test_log.txt")
 
     def test_car_park_initialized_with_all_attributes(self):
         self.assertIsInstance(self.car_park, CarPark)
@@ -71,6 +74,16 @@ class TestCarPark(unittest.TestCase):
         self.assertIn("NEW-001", last_line)
         self.assertIn("exited", last_line,)
         self.assertIn("\n", last_line)
+
+    def test_initialize_with_config(self):
+        original = CarPark("TestLocation", 20, log_file=self.log_path, config_file=self.config_path)
+        original.write_config()
+
+        loaded = CarPark.from_config(self.config_path)
+
+        self.assertEqual(loaded.location, original.location)
+        self.assertEqual(loaded.capacity, original.capacity)
+        self.assertEqual(str(loaded.log_file), str(original.log_file))
 
 
 if __name__ == "__main__":
