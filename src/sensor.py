@@ -9,8 +9,7 @@ class Sensor(ABC):
     def __init__(self,
                  id,
                  car_park,
-                 is_on = False,
-                 ):
+                 is_on=False):
         self.id = id
         self.car_park = car_park
         self.is_on = is_on
