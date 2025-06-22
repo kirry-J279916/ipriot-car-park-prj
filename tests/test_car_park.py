@@ -1,6 +1,7 @@
 import unittest
 from car_park import CarPark
 from pathlib import Path
+from display import Display
 
 
 class TestCarPark(unittest.TestCase):
@@ -10,6 +11,7 @@ class TestCarPark(unittest.TestCase):
         self.config_file = Path("config.json")
         self.config_path = Path("test_config.json")
         self.log_path = Path("test_log.txt")
+        self.display = Display(id=1, car_park=self.car_park, message="Welcome", is_on=True)
 
     def test_car_park_initialized_with_all_attributes(self):
         self.assertIsInstance(self.car_park, CarPark)
@@ -84,6 +86,12 @@ class TestCarPark(unittest.TestCase):
         self.assertEqual(loaded.location, original.location)
         self.assertEqual(loaded.capacity, original.capacity)
         self.assertEqual(str(loaded.log_file), str(original.log_file))
+
+    def test_display_temperature_updated(self):
+        test_data = {"available_bays": 1, "temperature": 30}
+
+        self.display.update(test_data)
+        self.assertEqual(self.display.temperature, 30)
 
 
 if __name__ == "__main__":
