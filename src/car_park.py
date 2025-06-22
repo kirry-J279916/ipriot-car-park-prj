@@ -47,12 +47,16 @@ class CarPark:
         self.update_displays()
         self._log_car_activity(plate, "exited")
 
-    def update_displays(self):
-        data = {"available_bays": self.available_bays,
-                "temperature": 25}
+    def update_displays(self, temperature=None):
+        if not self.displays:
+            return
+        data = {"available_bays": self.available_bays}
+
+        if temperature is not None:
+            data["temperature"] = temperature
+
         for display in self.displays:
             display.update(data)
-            print(f"Updating: {display}")
 
     @property
     def available_bays(self):
@@ -65,8 +69,12 @@ class CarPark:
         with self.log_file.open("a") as f:
             f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
 
-    def write_config(self):
-        with self.config_file.open("w") as f:
+    def write_config(self, file_path=None):
+        """
+        Take optional custom file path
+        """
+        custom_file = Path(file_path) if file_path else self.config_file
+        with custom_file.open("w") as f:
             json.dump({"location": self.location,
                        "capacity": self.capacity,
                        "log_file": str(self.log_file)}, f)
